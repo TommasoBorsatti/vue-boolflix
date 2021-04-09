@@ -20,12 +20,12 @@ const App = new Vue ({
           language: "it-IT"
         }
       })
-      .then(function(response){
+      .then((response)=>{
         MovieData = response.data.results;
         this.movies = MovieData;
         console.log(this.movies);
       })
-      this.searchQuery = null;
+      this.searchQuery = "";
     },
 
   },

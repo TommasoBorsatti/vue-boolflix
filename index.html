@@ -57,7 +57,7 @@
       <div class="container">
         <div class="template" v-for ="movie in movies">
           <div class="poster-box">
-            <img class="poster" :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" alt="Locandina del film">
+            <img class="poster" :src="'https://image.tmdb.org/t/p/w300'+ movie.poster_path" alt="Locandina del film">
           </div>
           <div class="info-box">
             <h2 class="title">{{movie.title}}</h2>

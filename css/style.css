@@ -41,8 +41,12 @@ body{
   display:none;
 }
 
+.poster-box{
+  height: 100%;
+}
+
 .poster{
-  width:100%;
+  width: 100%;
   height: 100%;
 }
 
