@@ -66,7 +66,7 @@
             <p class="lang"><strong>Lingua: </strong>{{movie.original_language}}</p>
           </div>
           <div class="rating-box">
-            <p><strong>Voto Medio: </strong>{{movie.vote_average}}</p>
+            <p><strong>Voto Medio: </strong>{{ratings[movie.vote_average]}}</p>
             <p v-if="movie.overview==''"><strong>Sinossi: </strong><small>Non disponibile!</small></p>
             <p v-else><strong>Sinossi: </strong><small>{{movie.overview}}</small></p>
           </div>

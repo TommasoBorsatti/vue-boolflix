@@ -7,6 +7,7 @@ const App = new Vue ({
 
     movies:[],
     searchQuery:"",
+    ratings:["", "*", "**", "***", "****", "*****"],
 
   },
 
@@ -23,9 +24,15 @@ const App = new Vue ({
       .then((response)=>{
         MovieData = response.data.results;
         this.movies = MovieData;
-        console.log(this.movies);
+        //dimezzo i voti dei film
+        this.movies.forEach(element => element.vote_average = Math.floor(element.vote_average / 2));
+
       })
       this.searchQuery = "";
+      // arrotondo e dimezzo i voti
+
+
+
     },
 
   },
