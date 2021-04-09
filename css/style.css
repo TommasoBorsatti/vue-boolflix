@@ -57,6 +57,14 @@ h1{
   color: #E50914
 }
 
+h2{
+  color: white;
+}
+
+h3{
+  color: white;
+}
+
 /* INPUT-ICONS-BUTTONS */
 
 input:focus{

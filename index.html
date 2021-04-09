@@ -35,7 +35,6 @@
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
-  <link rel="manifest" href="img/favicon/manifest.json">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
@@ -45,29 +44,29 @@
 
 </head>
 <body>
-  <div class="wrapper" id="roots">
+  <div class="wrapper" id="root">
     <header>
       <div class="logo-box">
         <h1>NEFFLIS</h1>
       </div>
       <div class="search-box">
-        <input id="movie-search" type="text" value="" placeholder="-Che film vuoi vedere oggi?-">
+        <input id="movie-search" v-model="searchQuery" @keyup.enter = "searchMovie" type="text" value="" placeholder="-Che film vuoi vedere oggi?-">
       </div>
     </header>
     <main>
       <div class="container">
-        <div class="template">
-            <div class="poster-box">
-              <img class="poster" src="https://via.placeholder.com/300x400" alt="">
-            </div>
-            <div class="info-box">
-              <h2 class="title">Ciccio</h2>
-              <h3 class="original-title">The Citch</h3>
-              <h3 class="lang">inglish</h3>
-            </div>
-            <div class="rating-box">
-              <h4>4 su 5</h4>
-            </div>
+        <div class="template" v-for ="movie in movies">
+          <div class="poster-box">
+            <img class="poster" :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" alt="Locandina del film">
+          </div>
+          <div class="info-box">
+            <h2 class="title">{{movie.title}}</h2>
+            <h3 class="original-title">{{movie.original_title}}</h3>
+            <h3 class="lang">{{movie.original_language}}</h3>
+          </div>
+          <div class="rating-box">
+            <h4>{{movie.vote_average}}</h4>
+          </div>
         </div>
       </div>
     </main>
