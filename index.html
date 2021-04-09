@@ -57,15 +57,18 @@
       <div class="container">
         <div class="template" v-for ="movie in movies">
           <div class="poster-box">
-            <img class="poster" :src="'https://image.tmdb.org/t/p/w300'+ movie.poster_path" alt="Locandina del film">
+            <img class="poster" v-if= "movie.poster_path==null" src="img/notavailable.png" alt="immagine non disponibile">
+            <img class="poster" v-else :src="'https://image.tmdb.org/t/p/w300'+ movie.poster_path" alt="Locandina del film">
           </div>
           <div class="info-box">
-            <h2 class="title">{{movie.title}}</h2>
-            <h3 class="original-title">{{movie.original_title}}</h3>
-            <h3 class="lang">{{movie.original_language}}</h3>
+            <p class="title"><strong>Titolo: </strong>{{movie.title}}</p>
+            <p class="original-title"><strong>Titolo Originale: </strong>{{movie.original_title}}</p>
+            <p class="lang"><strong>Lingua: </strong>{{movie.original_language}}</p>
           </div>
           <div class="rating-box">
-            <h4>{{movie.vote_average}}</h4>
+            <p><strong>Voto Medio: </strong>{{movie.vote_average}}</p>
+            <p v-if="movie.overview==''"><strong>Sinossi: </strong><small>Non disponibile!</small></p>
+            <p v-else><strong>Sinossi: </strong><small>{{movie.overview}}</small></p>
           </div>
         </div>
       </div>
