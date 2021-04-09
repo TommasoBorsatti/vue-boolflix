@@ -6,11 +6,42 @@
 }
 
 body{
-  background: #141414;
   font-family: 'Martel Sans', sans-serif;
 }
 
 /* TYPO */
+
 h1{
   color: #E50914
+}
+
+/* INPUT-ICONS-BUTTONS */
+
+input:focus{
+  outline: none;
+}
+
+/* STRUCTURE */
+
+header{
+  height: 10vh;
+  background-color: #121212;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 28px
+}
+
+main{
+  height: 90vh;
+  overflow-y: auto;
+  background: #141414;
+}
+
+/* Header */
+
+#movie-search{
+  width: 400px;
+  font-style: italic;
+  padding: 1px 6px;
 }
