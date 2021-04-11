@@ -67,6 +67,10 @@ p{
   color: white;
 }
 
+p.serie-text small{
+  font-size: 7px;
+}
+
 /* INPUT-ICONS-BUTTONS */
 
 i{

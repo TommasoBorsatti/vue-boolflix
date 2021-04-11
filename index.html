@@ -76,6 +76,28 @@
             <p v-else><strong><em>Sinossi: </em></strong><small>{{movie.overview}}</small></p>
           </div>
         </div>
+        <div class="template" v-for ="serie in tvSeries">
+          <div class="poster-box">
+            <img class="poster" v-if= "serie.poster_path==null" src="img/notavailable.png" alt="immagine non disponibile">
+            <img class="poster" v-else :src="'https://image.tmdb.org/t/p/w300' + serie.poster_path" alt="Locandina della serie">
+          </div>
+          <div class="info-box">
+            <p class="title"><strong><em>Nome Serie: </em></strong>{{serie.name}}</p>
+            <p class="original-title"><strong><em>Nome Originale: </em></strong>{{serie.original_name}}</p>
+            <p class="lang"><strong><em>Lingua: <img v-if="serie.original_language =='en'?serie.original_language = 'us' : serie.original_language = serie.original_language " class="flag" :src="'https://www.countryflags.io/' + serie.original_language + '/flat/16.png'"></em></strong>{{serie.original_language}}</p>
+          </div>
+          <div class="rating-box">
+            <p v-if="serie.vote_average == '0'"><strong><em>Voto Medio: </em></strong></p>
+            <p v-if="serie.vote_average == '1'"><strong><em>Voto Medio: </em></strong><i class="fas fa-star"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></p>
+            <p v-if="serie.vote_average == '2'"><strong><em>Voto Medio: </em></strong><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+            <p v-if="serie.vote_average == '3'"><strong><em>Voto Medio: </em></strong><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+            <p v-if="serie.vote_average == '4'"><strong><em>Voto Medio: </em></strong><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
+            <p v-if="serie.vote_average == '5'"><strong><em>Voto Medio: </em></strong><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+            <p v-if="serie.overview==''"><strong>Sinossi: </strong><small>Non disponibile!</small></p>
+            <p class="serie-text" v-else><strong><em>Sinossi: </em></strong><small>{{serie.overview}}</small></p>
+          </div>
+        </div>
+
       </div>
     </main>
   </div>
