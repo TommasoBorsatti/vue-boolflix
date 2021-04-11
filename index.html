@@ -50,7 +50,7 @@
         <h1>NEFFLIS</h1>
       </div>
       <div class="search-box">
-        <input id="movie-search" v-model="searchQuery" @keyup.enter = "searchMovie" type="text" value="" placeholder="-Che film vuoi vedere oggi?-">
+        <input id="movie-search" v-model="searchQuery" @keyup.enter = "searchMovie" type="text" placeholder="- Che film vuoi vedere oggi? -">
       </div>
     </header>
     <main>
@@ -58,17 +58,22 @@
         <div class="template" v-for ="movie in movies">
           <div class="poster-box">
             <img class="poster" v-if= "movie.poster_path==null" src="img/notavailable.png" alt="immagine non disponibile">
-            <img class="poster" v-else :src="'https://image.tmdb.org/t/p/w300'+ movie.poster_path" alt="Locandina del film">
+            <img class="poster" v-else :src="'https://image.tmdb.org/t/p/w300' + movie.poster_path" alt="Locandina del film">
           </div>
           <div class="info-box">
-            <p class="title"><strong>Titolo: </strong>{{movie.title}}</p>
-            <p class="original-title"><strong>Titolo Originale: </strong>{{movie.original_title}}</p>
-            <p class="lang"><strong>Lingua: </strong>{{movie.original_language}}</p>
+            <p class="title"><strong><em>Titolo: </em></strong>{{movie.title}}</p>
+            <p class="original-title"><strong><em>Titolo Originale: </em></strong>{{movie.original_title}}</p>
+            <p class="lang"><strong><em>Lingua: <img v-if="movie.original_language =='en'? movie.original_language = 'us' : movie.original_language = movie.original_language " class="flag" :src="'https://www.countryflags.io/' + movie.original_language + '/flat/16.png'"></em></strong>{{movie.original_language}}</p>
           </div>
           <div class="rating-box">
-            <p><strong>Voto Medio: </strong>{{ratings[movie.vote_average]}}</p>
+            <p v-if="movie.vote_average == '0'"><strong><em>Voto Medio: </em></strong></p>
+            <p v-if="movie.vote_average == '1'"><strong><em>Voto Medio: </em></strong><i class="fas fa-star"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></p>
+            <p v-if="movie.vote_average == '2'"><strong><em>Voto Medio: </em></strong><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+            <p v-if="movie.vote_average == '3'"><strong><em>Voto Medio: </em></strong><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+            <p v-if="movie.vote_average == '4'"><strong><em>Voto Medio: </em></strong><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
+            <p v-if="movie.vote_average == '5'"><strong><em>Voto Medio: </em></strong><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
             <p v-if="movie.overview==''"><strong>Sinossi: </strong><small>Non disponibile!</small></p>
-            <p v-else><strong>Sinossi: </strong><small>{{movie.overview}}</small></p>
+            <p v-else><strong><em>Sinossi: </em></strong><small>{{movie.overview}}</small></p>
           </div>
         </div>
       </div>

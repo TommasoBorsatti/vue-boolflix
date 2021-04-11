@@ -69,8 +69,18 @@ p{
 
 /* INPUT-ICONS-BUTTONS */
 
+i{
+  margin: 0px 1px;
+}
+
 input:focus{
   outline: none;
+}
+
+.flag{
+  display: inline;
+  margin: 0px 2px;
+  vertical-align: middle;
 }
 
 /* STRUCTURE */
