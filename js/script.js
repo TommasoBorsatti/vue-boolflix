@@ -25,7 +25,7 @@ const App = new Vue ({
         MovieData = response.data.results;
         this.movies = MovieData;
         //dimezzo i voti dei film
-        this.movies.forEach(element => element.vote_average = Math.floor(element.vote_average / 2));
+        this.movies.forEach(element => element.vote_average = Math.ceil(element.vote_average / 2));
       })
 
       axios.get("https://api.themoviedb.org/3/search/tv", {
@@ -39,7 +39,7 @@ const App = new Vue ({
         TvData = response.data.results;
         this.tvSeries = TvData;
         //dimezzo i voti delle serie
-        this.tvSeries.forEach(element => element.vote_average = Math.floor(element.vote_average / 2));
+        this.tvSeries.forEach(element => element.vote_average = Math.ceil(element.vote_average / 2));
 
       })
 

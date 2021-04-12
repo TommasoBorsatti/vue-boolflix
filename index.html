@@ -66,7 +66,7 @@
             <p class="lang"><strong><em>Lingua: <img v-if="movie.original_language =='en'? movie.original_language = 'us' : movie.original_language = movie.original_language " class="flag" :src="'https://www.countryflags.io/' + movie.original_language + '/flat/16.png'"></em></strong>{{movie.original_language}}</p>
           </div>
           <div class="rating-box">
-            <p v-if="movie.vote_average == '0'"><strong><em>Voto Medio: </em></strong></p>
+            <p v-if="movie.vote_average == '0'"><strong><em>Voto Medio: </em></strong>Non disponibile!</p>
             <p v-if="movie.vote_average == '1'"><strong><em>Voto Medio: </em></strong><i class="fas fa-star"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></p>
             <p v-if="movie.vote_average == '2'"><strong><em>Voto Medio: </em></strong><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
             <p v-if="movie.vote_average == '3'"><strong><em>Voto Medio: </em></strong><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
@@ -87,7 +87,7 @@
             <p class="lang"><strong><em>Lingua: <img v-if="serie.original_language =='en'?serie.original_language = 'us' : serie.original_language = serie.original_language " class="flag" :src="'https://www.countryflags.io/' + serie.original_language + '/flat/16.png'"></em></strong>{{serie.original_language}}</p>
           </div>
           <div class="rating-box">
-            <p v-if="serie.vote_average == '0'"><strong><em>Voto Medio: </em></strong></p>
+            <p v-if="serie.vote_average == '0'"><strong><em>Voto Medio: </em></strong>Non disponibile!</p>
             <p v-if="serie.vote_average == '1'"><strong><em>Voto Medio: </em></strong><i class="fas fa-star"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></p>
             <p v-if="serie.vote_average == '2'"><strong><em>Voto Medio: </em></strong><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
             <p v-if="serie.vote_average == '3'"><strong><em>Voto Medio: </em></strong><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
