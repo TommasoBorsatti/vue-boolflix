@@ -55,6 +55,12 @@
     </header>
     <main>
       <div class="container">
+        <div v-if="movies=='' && tvSeries ==''">
+          <h2>Effettua la tua ricerca!</h2>
+        </div>
+        <div class="breaker first" v-if="movies!=''">
+          <h2>I tuoi film:</h2>
+        </div>
         <div class="template" v-for ="movie in movies">
           <div class="poster-box">
             <img class="poster" v-if= "movie.poster_path==null" src="img/notavailable.png" alt="immagine non disponibile">
@@ -63,7 +69,7 @@
           <div class="info-box">
             <p class="title"><strong><em>Titolo: </em></strong>{{movie.title}}</p>
             <p class="original-title"><strong><em>Titolo Originale: </em></strong>{{movie.original_title}}</p>
-            <p class="lang"><strong><em>Lingua: <img v-if="movie.original_language =='en'? movie.original_language = 'us' : movie.original_language = movie.original_language " class="flag" :src="'https://www.countryflags.io/' + movie.original_language + '/flat/16.png'"></em></strong>{{movie.original_language}}</p>
+            <p class="lang"><strong><em>Lingua: <img v-if="movie.original_language =='en'? movie.original_language = 'us' : movie.original_language = movie.original_language && movie.original_language =='ja'? movie.original_language = 'jp' : movie.original_language = movie.original_language && movie.original_language =='el'? movie.original_language = 'gr' : movie.original_language = movie.original_language " class="flag" :src="'https://www.countryflags.io/' + movie.original_language + '/flat/16.png'"></em></strong>{{movie.original_language}}</p>
           </div>
           <div class="rating-box">
             <p v-if="movie.vote_average == '0'"><strong><em>Voto Medio: </em></strong>Non disponibile!</p>
@@ -75,6 +81,9 @@
             <p v-if="movie.overview==''"><strong>Sinossi: </strong><small>Non disponibile!</small></p>
             <p v-else><strong><em>Sinossi: </em></strong><small>{{movie.overview}}</small></p>
           </div>
+        </div>
+        <div class="breaker" v-if="tvSeries!=''">
+          <h2>Le tue serie TV:</h2>
         </div>
         <div class="template" v-for ="serie in tvSeries">
           <div class="poster-box">

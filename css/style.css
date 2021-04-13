@@ -29,6 +29,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
 }
 
 .template:hover .info-box,
@@ -56,10 +57,30 @@ body{
   text-align: justify;
 }
 
+.breaker{
+  width:100%;
+  cursor: pointer;
+  text-decoration: red underline;
+  margin: 40px 0px 30px
+}
+
+.breaker.first{
+  margin: 30px 0px 30px;
+}
+
+
+
 /* TYPO */
 
 h1{
   color: #E50914
+}
+
+h2{
+  font-size: 20px;
+  color: #E50914;
+  margin: 10px 10px;
+
 }
 
 p{
